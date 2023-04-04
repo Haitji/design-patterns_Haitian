@@ -1,6 +1,6 @@
 package com.kreitek.pets.infraestructure.bd;
 
-import com.kreitek.pets.Logger;
+import com.kreitek.pets.Logs.Logger;
 import com.kreitek.pets.domain.Cat;
 import com.kreitek.pets.domain.Dog;
 
