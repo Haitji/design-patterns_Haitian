@@ -18,6 +18,7 @@ public class ConsoleEditor implements Editor {
 
     private final CommandFactory commandFactory = new CommandFactory();
     private ArrayList<String> documentLines = new ArrayList<String>();
+    private MementoCaretaker caretaker = MementoCaretaker.getInstance();
 
     @Override
     public void run() {
@@ -27,6 +28,7 @@ public class ConsoleEditor implements Editor {
             try {
                 Command command = commandFactory.getCommand(commandLine);
                 command.execute(documentLines);
+                //caretaker.addMemento(new Memento(documentLines));
             } catch (BadCommandException e) {
                 printErrorToConsole("Bad command");
             } catch (ExitException e) {
