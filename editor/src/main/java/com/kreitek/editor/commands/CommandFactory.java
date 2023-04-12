@@ -4,7 +4,6 @@ import com.kreitek.editor.*;
 
 public class CommandFactory {
     private static final CommandParser commandParser = new CommandParser();
-    private int cont=1;
     public Command getCommand(String commandLine) throws BadCommandException, ExitException {
         String[] args = commandParser.parse(commandLine);
         return switch (args[0]) {
@@ -17,8 +16,7 @@ public class CommandFactory {
     }
 
     private Command createUndoCommand() {
-        cont ++;
-        return new UndoCommand(cont);
+        return new UndoCommand();
     }
 
     private Command createDeleteCommand(String lineNumber) {

@@ -8,10 +8,6 @@ import java.util.List;
 
 public class UndoCommand implements Command{
 
-    private int contador;
-    public UndoCommand(int num){
-        this.contador=num;
-    }
 
     @Override
     public void execute(ArrayList<String> documentLines, List<Memento> listMemento) {
@@ -19,7 +15,9 @@ public class UndoCommand implements Command{
             System.err.println("No hay un estado anterior a este.");
         }else{
             documentLines.clear();
-            documentLines.addAll(listMemento.get(listMemento.size()-contador).getRestudy());
+            documentLines.addAll(listMemento.get(listMemento.size()-2).getRestudy());
+            int index=listMemento.size()-1;
+            listMemento.remove(index);
         }
     }
 }
